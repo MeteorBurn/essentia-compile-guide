@@ -4,14 +4,36 @@ This guide provides step-by-step instructions for compiling and installing Essen
 
 **Important Note:** This guide uses a fork of the official Essentia repository, available at **https://github.com/wo80/essentia.git**. This fork is actively maintained by another developer and includes several useful improvements, most notably a modern and easier-to-use build system based on `CMake`. At the time of writing this guide, the `cmake` branch was the most current and stable for this purpose, which is why it is used here.
 
+## A Note on the Process (Disclaimer)
+
+This guide is the product of a significant amount of trial and error. The process of building Essentia with mandatory TensorFlow GPU support is notoriously difficult, and this manual is the result of many failed attempts to find a reliable method.
+
+The single greatest challenge was resolving dependency conflicts. TensorFlow, in particular, requires a very specific set of package versions to function correctly, and these often clash with the requirements of other libraries. The versions specified in this guide were carefully chosen to create a stable, compatible environment that worked at the time of writing.
+
+While these steps provide a proven path, please be aware that this is not a guarantee of a flawless installation. The world of software compilation is complex, and issues can still arise from:
+
+-   **System Variations:** Differences in Linux distributions, their versions, or pre-existing system libraries.
+-   **Future Dependency Updates:** The Python ecosystem moves quickly. In the future, newer package versions may break this build. This guide uses fixed versions to prevent such issues.
+
+Think of this guide as a stable, verified snapshot in time. If you encounter problems, we encourage you to use these steps as a solid baseline for troubleshooting.
+
 ## What You'll Need
 
-1.  **TensorFlow C API:** This is the C++ library that Essentia uses to run TensorFlow models.
-2.  **TensorFlow Python Package:** This is the `.whl` file for installing TensorFlow in your Python environment.
+To integrate with TensorFlow, Essentia requires two components:
+1.  **The TensorFlow C API:** A C++ library that allows Essentia to execute models.
+2.  **The TensorFlow Python Package:** The familiar `.whl` file for your Python environment.
 
-The C API and Python package versions must match exactly. This guide uses version `2.14.1`. You have two options:
-*   **Use Pre-built Files:** Download the exact files used in this guide for a known-working setup (recommended for simplicity).
-*   **Use Your Own Files:** Download a different version from the official [TensorFlow website](https://www.tensorflow.com/install/lang_c) that is compatible with your specific GPU and CUDA version. If you do this, you must update the filenames in the commands below.
+It is critical that the versions of the C API and the Python package match exactly. This guide uses version `2.14.1`. You have several options to obtain these files:
+
+#### Option 1: Use Pre-built Binaries (Recommended)
+This is the simplest and fastest approach.
+-   **A) Use the files from this guide:** The `wget` commands in Step 4 will download known-working, pre-built GPU-enabled versions of TensorFlow. This is the most reliable path.
+-   **B) Find other pre-built binaries:** If the version in this guide is not compatible with your GPU/CUDA setup, you can find other pre-built versions on the official [TensorFlow website](https://www.tensorflow.com/install/lang_c). Make sure you download both the C API and the Python `.whl` file of the *same version*.
+
+#### Option 2: Compile TensorFlow from Source (Advanced)
+For maximum performance or compatibility with very specific hardware, you can compile TensorFlow from its source code. This allows you to tailor the build to your exact GPU architecture (e.g., setting `TF_CUDA_COMPUTE_CAPABILITIES`).
+
+This process is significantly more complex and is **outside the scope of this guide**. If you choose this path, you will need to follow the official [TensorFlow build from source instructions](https://www.tensorflow.org/install/source). After building, you will have your own `libtensorflow.tar.gz` (C API) and `tensorflow-....whl` (Python) files to use in Step 4.
 
 ## Prerequisites
 
