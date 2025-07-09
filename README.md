@@ -130,23 +130,47 @@ pip install --upgrade pip wheel
 
 ### 🧠 Step 4: Install TensorFlow & Python Dependencies
 
-*Now, with the virtual environment active, we'll install the TensorFlow C API, the TensorFlow Python package, and other libraries Essentia needs.*
+*Now, with the virtual environment active, we'll install the C API via `wget` and then manually download and install the Python package.*
+
+**Part A: Install the C API**
 
 ```bash
 # Navigate back to our main build directory
 cd $BUILD_DIR
 
-# 1. Download and install the TensorFlow C API (for C++ code)
+# Download and install the TensorFlow C API
 wget https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow-gpu-linux-x86_64-2.14.1.tar.gz
 sudo tar -C /usr/local -xzf libtensorflow-gpu-linux-x86_64-2.14.1.tar.gz
 sudo ldconfig
+```
 
-# 2. Install Python dependencies
-# First, download the matching TensorFlow wheel from the official Python package host
-wget https://files.pythonhosted.org/packages/92/44/7f952948345f45795c587582a4b17e5b32b6dbe0359246a51404cb039e34/tensorflow-2.14.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+**Part B: Manually Download and Install the Python Package**
 
-# Install the local wheel file and other required packages
-pip install ./tensorflow-2.14.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+Direct `wget` links for Python packages from official sources can be unreliable. The safest method is to download the `.whl` file manually from your browser.
+
+1.  **Open the PyPI page:** In your local web browser, go to the official download page:
+    [**TensorFlow 2.14.1 Files on PyPI**](https://pypi.org/project/tensorflow/2.14.1/#files).
+
+2.  **Find the correct file:** Carefully look for the file that matches our environment:
+    -   It must contain `cp310` (for Python 3.10).
+    -   It must contain `manylinux` and `x86_64`.
+    -   The full name is `tensorflow-2.14.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl`.
+
+3.  **Download the file** to your local computer.
+
+4.  **Upload the file** from your computer to your server's build directory (`~/essentia_build`). You can use `scp`, `sftp`, or any other file transfer tool.
+
+Once the `.whl` file is in your `~/essentia_build` directory on the server, run the following commands:
+
+```bash
+# Navigate to the build directory if you aren't there already
+cd $BUILD_DIR
+
+# Install the .whl file you just uploaded
+# Note: The wildcard * makes it easier so you don't have to type the full long name.
+pip install ./tensorflow-2.14.1-cp310-*.whl
+
+# Finally, install the other Python packages for Essentia
 pip install "numpy>=1.23.5,<1.24" "pyyaml>=5.4,<7.0" "six>=1.15,<2.0" "av>=10.0,<11.0"
 ```
 
