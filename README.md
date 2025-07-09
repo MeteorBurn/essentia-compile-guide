@@ -44,7 +44,7 @@ You have several options to obtain these files:
 This is the simplest and fastest approach.
 
 -   **A) Use the files from this guide:** The `wget` commands in Step 4 will download known-working, pre-built GPU-enabled versions of TensorFlow. This is the most reliable path.
--   **B) Find other pre-built binaries:** If the version in this guide is not compatible with your GPU/CUDA setup, you can find other pre-built versions on the official [TensorFlow website](https://www.tensorflow.com/install/lang_c). Make sure you download both the C API and the Python `.whl` file of the *same version*.
+-   **B) Find other pre-built binaries:** If the version in this guide is not compatible with your GPU/CUDA setup, you can find other pre-built versions on the official [TensorFlow website](https://www.tensorflow.org/install/lang_c). Make sure you download both the C API and the Python `.whl` file of the *same version*.
 
 </details>
 
