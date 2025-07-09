@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://essentia.upf.edu/images/essentia_logo_gradient.png" alt="Essentia Logo" width="150"/>
+  <img src="essentia_logo.png" alt="Essentia Logo" width="150"/>
   <h1>Essentia Compile Guide for Ubuntu</h1>
   <p>
     A comprehensive, step-by-step guide to compiling Essentia with TensorFlow GPU support from source on a clean Ubuntu 22.04 server.
