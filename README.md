@@ -5,7 +5,7 @@
     A comprehensive, step-by-step guide to compiling Essentia with TensorFlow GPU support from source on a clean Ubuntu 22.04 server.
   </p>
   <p>
-    <i>This guide is based on the <a href="https://github.com/wo80/essentia">wo80/essentia</a> fork. This version is actively maintained by another developer and includes several useful improvements, most notably a modern CMake build system.</i>
+    <i>This guide is based on the <a href="https://github.com/wo80/essentia">wo80/essentia</a> fork. This version is actively maintained by another developer and includes several useful improvements, most notably a modern CMake build system. At the time of writing, the <code>cmake</code> branch was the most current for this purpose, which is why it is used in the instructions below.</i>
   </p>
 </div>
 
