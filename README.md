@@ -1,11 +1,10 @@
 <div align="center">
-  <img src="essentia_logo.png" alt="Essentia Logo" width="150"/>
   <h1>Essentia Compile Guide for Ubuntu</h1>
   <p>
     A comprehensive, step-by-step guide to compiling Essentia with TensorFlow GPU support from source on a clean Ubuntu 22.04 server.
   </p>
   <p>
-    <i>This guide is based on the <a href="https://github.com/wo80/essentia">wo80/essentia</a> fork. This version is actively maintained by another developer and includes several useful improvements, most notably a modern CMake build system. At the time of writing, the <code>cmake</code> branch was the most current for this purpose, which is why it is used in the instructions below.</i>
+    <i>This guide is based on the <a href="https://github.com/wo80/essentia">wo80/essentia</a> fork. This version is actively maintained by one of its original developers and includes several useful improvements, most notably a modern CMake build system. At the time of writing, the <code>cmake</code> branch was the most current for this purpose, which is why it is used in the instructions below.</i>
   </p>
 </div>
 
@@ -238,3 +237,11 @@ pip install --force-reinstall --no-deps essentia-*.whl
   <h3>🎉 Congratulations! Your installation is complete. 🎉</h3>
   <p>To leave the virtual environment, simply type: <code>deactivate</code></p>
 </div>
+
+---
+
+## 🎓 Citing Essentia
+
+If you use this software in your research, please don't forget to cite the original authors of Essentia:
+
+> Bogdanov, D., Wack N., Gómez E., Gulati S., Herrera P., Mayor O., et al. (2013). **ESSENTIA: an Audio Analysis Library for Music Information Retrieval.** In *Proceedings of the 14th International Society for Music Information Retrieval Conference (ISMIR'13)* (pp. 493-498).
