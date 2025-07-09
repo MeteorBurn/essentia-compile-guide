@@ -53,7 +53,7 @@ This is the simplest and fastest approach.
 
 For maximum performance or compatibility with very specific hardware, you can compile TensorFlow from its source code. This allows you to tailor the build to your exact GPU architecture (e.g., setting `TF_CUDA_COMPUTE_CAPABILITIES`).
 
-This process is significantly more complex and is **outside the scope of this guide**. If you choose this path, you will need to follow the official [TensorFlow build from source instructions](https://www.tensorflow.com/install/source). After building, you will have your own `libtensorflow.tar.gz` (C API) and `tensorflow-....whl` (Python) files to use in Step 4.
+This process is significantly more complex and is **outside the scope of this guide**. If you choose this path, you will need to follow the official [TensorFlow build from source instructions](https://www.tensorflow.org/install/source). After building, you will have your own `libtensorflow.tar.gz` (C API) and `tensorflow-....whl` (Python) files to use in Step 4.
 
 </details>
 
