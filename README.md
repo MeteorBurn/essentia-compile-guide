@@ -36,17 +36,14 @@ To integrate with TensorFlow, Essentia requires two components. It is **critical
 1.  **The TensorFlow C API**: A C++ library for model execution.
 2.  **The TensorFlow Python Package**: The `.whl` file for your Python environment.
 
-This guide's default method is to download these files directly using `wget` in Step 4. However, you can also provide them yourself:
+This guide's default method is to download these files directly using `wget` in Step 4. However, advanced users have other options:
 
 <details>
-<summary><strong>Alternative: Provide Your Own Files</strong></summary>
+<summary><strong>Alternative Options (Manual Download or Build from Source)</strong></summary>
 
-If you prefer, you can download the necessary files beforehand or use your own custom-built versions.
+-   **Manual Download:** You can download the necessary files beforehand from the official TensorFlow sources. If you do this, place the downloaded files into the `~/essentia_build` directory and skip the `wget` commands in Step 4, proceeding directly to the `tar` and `pip install` commands.
 
--   **To download manually:** Get the C API and the Python `.whl` file from the official TensorFlow sources. Make sure their versions match and that the Python version corresponds to the one used in this guide (3.10).
--   **To build from source:** For maximum performance, you can compile TensorFlow from its source code by following the official [TensorFlow build from source instructions](https://www.tensorflow.org/install/source).
-
-If you use this method, place the downloaded/built files into the `~/essentia_build` directory and skip the `wget` commands in Step 4, proceeding directly to the `tar` and `pip install` commands.
+-   **Build from Source (Advanced):** For maximum performance or compatibility with specific hardware, you can compile TensorFlow yourself. This process is complex and is outside the scope of this guide. You will need to follow the official [TensorFlow build from source instructions](https://www.tensorflow.org/install/source). After building, use your custom `libtensorflow.tar.gz` and `tensorflow-....whl` files in Step 4.
 
 </details>
 
