@@ -28,6 +28,24 @@ Before you begin, ensure you have the following:
 
 ---
 
+## ⚠️ GPU Support Setup (Pre-installation)
+
+> [!IMPORTANT]
+> This guide assumes your server is already configured with the necessary NVIDIA drivers and libraries for GPU support. The TensorFlow version we are installing requires a specific environment.
+>
+> You must install these components **before** starting Step 1.
+
+You are responsible for installing:
+1.  **NVIDIA Driver:** A recent version compatible with your GPU.
+2.  **CUDA Toolkit:** Version **11.8**.
+3.  **cuDNN Library:** Version **8.6**.
+
+You can find the required cuDNN archive here: [cuDNN 8.6 for CUDA 11.x](https://developer.download.nvidia.com/compute/cudnn/redist/cudnn/linux-x86_64/cudnn-linux-x86_64-8.6.0.163_cuda11-archive.tar.xz).
+
+This guide does not provide instructions for installing these NVIDIA components. Please refer to the official NVIDIA documentation for your specific hardware and OS.
+
+---
+
 ## 📦 What You'll Need for TensorFlow
 
 To integrate with TensorFlow, Essentia requires two components. It is **critical** that their versions match exactly. This guide uses version `2.14.1` for Python `3.10`.
