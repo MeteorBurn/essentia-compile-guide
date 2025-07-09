@@ -260,6 +260,11 @@ pip install --force-reinstall --no-deps essentia-*.whl
 
 ## 🎓 Citing Essentia
 
-If you use this software in your research, please don't forget to cite the original authors of Essentia:
+If you use this software in your research, please don't forget to cite the original authors of Essentia.
+
+<details>
+<summary><strong>Click to view citation details</strong></summary>
 
 > Bogdanov, D., Wack N., Gómez E., Gulati S., Herrera P., Mayor O., et al. (2013). **ESSENTIA: an Audio Analysis Library for Music Information Retrieval.** In *Proceedings of the 14th International Society for Music Information Retrieval Conference (ISMIR'13)* (pp. 493-498).
+
+</details>
