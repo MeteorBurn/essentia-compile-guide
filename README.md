@@ -31,29 +31,22 @@ Before you begin, ensure you have the following:
 
 ## 📦 What You'll Need for TensorFlow
 
-To integrate with TensorFlow, Essentia requires two components. It is **critical** that their versions match exactly. This guide uses version `2.14.1`.
+To integrate with TensorFlow, Essentia requires two components. It is **critical** that their versions match exactly. This guide uses version `2.14.1` for Python `3.10`.
 
 1.  **The TensorFlow C API**: A C++ library for model execution.
 2.  **The TensorFlow Python Package**: The `.whl` file for your Python environment.
 
-You have several options to obtain these files:
+This guide's default method is to download these files directly using `wget` in Step 4. However, you can also provide them yourself:
 
 <details>
-<summary><strong>Option 1: Use Pre-built Binaries (Recommended)</strong></summary>
+<summary><strong>Alternative: Provide Your Own Files</strong></summary>
 
-This is the simplest and fastest approach.
+If you prefer, you can download the necessary files beforehand or use your own custom-built versions.
 
--   **A) Use the files from this guide:** The `wget` commands in Step 4 will download known-working, pre-built GPU-enabled versions of TensorFlow. This is the most reliable path.
--   **B) Find other pre-built binaries:** If the version in this guide is not compatible with your GPU/CUDA setup, you can find other pre-built versions on the official [TensorFlow website](https://www.tensorflow.org/install/lang_c). Make sure you download both the C API and the Python `.whl` file of the *same version*.
+-   **To download manually:** Get the C API and the Python `.whl` file from the official TensorFlow sources. Make sure their versions match and that the Python version corresponds to the one used in this guide (3.10).
+-   **To build from source:** For maximum performance, you can compile TensorFlow from its source code by following the official [TensorFlow build from source instructions](https://www.tensorflow.org/install/source).
 
-</details>
-
-<details>
-<summary><strong>Option 2: Compile TensorFlow from Source (Advanced)</strong></summary>
-
-For maximum performance or compatibility with very specific hardware, you can compile TensorFlow from its source code. This allows you to tailor the build to your exact GPU architecture (e.g., setting `TF_CUDA_COMPUTE_CAPABILITIES`).
-
-This process is significantly more complex and is **outside the scope of this guide**. If you choose this path, you will need to follow the official [TensorFlow build from source instructions](https://www.tensorflow.org/install/source). After building, you will have your own `libtensorflow.tar.gz` (C API) and `tensorflow-....whl` (Python) files to use in Step 4.
+If you use this method, place the downloaded/built files into the `~/essentia_build` directory and skip the `wget` commands in Step 4, proceeding directly to the `tar` and `pip install` commands.
 
 </details>
 
@@ -152,11 +145,11 @@ sudo tar -C /usr/local -xzf libtensorflow-gpu-linux-x86_64-2.14.1.tar.gz
 sudo ldconfig
 
 # 2. Install Python dependencies
-# First, download the matching TensorFlow wheel
-wget https://storage.googleapis.com/tensorflow/libtensorflow/tensorflow-2.14.1-cp310-cp310-linux_x86_64.whl
+# First, download the matching TensorFlow wheel from the official Python package host
+wget https://files.pythonhosted.org/packages/92/44/7f952948345f45795c587582a4b17e5b32b6dbe0359246a51404cb039e34/tensorflow-2.14.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
 
 # Install the local wheel file and other required packages
-pip install ./tensorflow-2.14.1-cp310-cp310-linux_x86_64.whl
+pip install ./tensorflow-2.14.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
 pip install "numpy>=1.23.5,<1.24" "pyyaml>=5.4,<7.0" "six>=1.15,<2.0" "av>=10.0,<11.0"
 ```
 
