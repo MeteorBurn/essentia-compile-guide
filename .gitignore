@@ -3,6 +3,6 @@
 
 # But don't ignore README.md
 !README.md
-
+!TENSORFLOW.md
 # Don't ignore .gitignore itself
 !.gitignore
