@@ -48,6 +48,9 @@ This guide does not provide instructions for installing these NVIDIA components.
 
 ## 📦 What You'll Need for TensorFlow
 
+> [!NOTE]
+> For a detailed guide on building TensorFlow from source with GPU support specifically for Ubuntu 22.04 or WSL, see [TENSORFLOW.md](TENSORFLOW.md).
+
 To integrate with TensorFlow, Essentia requires two components. It is **critical** that their versions match exactly. This guide uses version `2.14.1` for Python `3.10`.
 
 1.  **The TensorFlow C API**: A C++ library for model execution.
