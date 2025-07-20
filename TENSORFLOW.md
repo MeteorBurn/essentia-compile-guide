@@ -225,10 +225,11 @@ pip install \
 ```bash
 cd $TF_BUILD_DIR
 
-# Download and install Bazel 6.5.0 (required for TensorFlow 2.16.2)
-wget https://github.com/bazelbuild/bazel/releases/download/6.5.0/bazel-6.5.0-installer-linux-x86_64.sh
-chmod +x bazel-6.5.0-installer-linux-x86_64.sh
-./bazel-6.5.0-installer-linux-x86_64.sh --user
+# Download and install Bazel 6.1.0 (required for TensorFlow 2.16.2)
+wget https://github.com/bazelbuild/bazel/releases/download/6.1.0/bazel-6.1.0-installer-linux-x86_64.sh
+chmod +x bazel-6.1.0-installer-linux-x86_64.sh
+./bazel-6.1.0-installer-linux-x86_64.sh --user
+
 
 # Add Bazel to PATH
 echo 'export PATH="$PATH:$HOME/bin"' >> ~/.bashrc
@@ -387,42 +388,17 @@ ls -la ../tf_wheel_311/tensorflow-*.whl
 ```bash
 cd $TF_BUILD_DIR/tensorflow
 
-# Build C API library
+# Сборка архива с libtensorflow.so, libtensorflow_cc.so, заголовками и .zip
 bazel build \
-    --config=opt \
-    --config=cuda \
-    --jobs=4 \
-    --local_ram_resources=8000 \
-    //tensorflow:libtensorflow.so.2.16.2
+  --config=opt \
+  --config=cuda \
+  //tensorflow/tools/lib_package:libtensorflow_pkg
 
-# Build header files
-bazel build \
-    --config=opt \
-    --config=cuda \
-    //tensorflow/c:c_api_headers
+# Copy archive
+cp bazel-bin/tensorflow/tools/lib_package/libtensorflow_pkg.tar.gz ../libtensorflow-2.16.2-gpu-linux-x86_64.tar.gz
 
-# Create structure for C API archive
-mkdir -p ../libtensorflow-2.16.2-gpu/lib ../libtensorflow-2.16.2-gpu/include/tensorflow/c
-
-# Copy library
-cp bazel-bin/tensorflow/libtensorflow.so.2.16.2 ../libtensorflow-2.16.2-gpu/lib/
-
-# Copy header files
-cp bazel-bin/tensorflow/tools/pip_package/build_pip_package.runfiles/org_tensorflow/tensorflow/c/*.h \
-   ../libtensorflow-2.16.2-gpu/include/tensorflow/c/
-
-# Create symbolic links for compatibility
-cd ../libtensorflow-2.16.2-gpu/lib/
-ln -sf libtensorflow.so.2.16.2 libtensorflow.so.2
-ln -sf libtensorflow.so.2.16.2 libtensorflow.so
-
-# Return to working directory and create archive
-cd $TF_BUILD_DIR
-tar -czf libtensorflow-2.16.2-gpu-linux-x86_64.tar.gz libtensorflow-2.16.2-gpu/
-
-# Check result
-ls -la libtensorflow-2.16.2-gpu-linux-x86_64.tar.gz
-```
+# Verify
+ls -la ../libtensorflow-2.16.2-gpu-linux-x86_64.tar.gz
 
 ## ✅ Step 13: Installation and Testing
 
