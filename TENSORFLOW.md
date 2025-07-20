@@ -399,6 +399,7 @@ cp bazel-bin/tensorflow/tools/lib_package/libtensorflow_pkg.tar.gz ../libtensorf
 
 # Verify
 ls -la ../libtensorflow-2.16.2-gpu-linux-x86_64.tar.gz
+```
 
 ## ✅ Step 13: Installation and Testing
 
