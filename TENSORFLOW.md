@@ -490,7 +490,7 @@ After successful completion, you will have:
 ### Memory Errors:
 ```bash
 # Reduce parallel jobs
---jobs=2 --local_ram_resources=4000
+--jobs=4 --local_ram_resources=8000
 ```
 
 ### CUDA Errors:
